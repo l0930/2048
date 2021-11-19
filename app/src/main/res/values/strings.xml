@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">2048</string>
+    <string name="score">Score : 0</string>
+    <string name="highest_score">Highest Score : 0</string>
+    <string name="button_replay">Restart</string>
+    <string name="welcome">欢迎使用2048</string>
+    <string name="start">开始游戏</string>
+    <string name="rank">排行榜</string>
+    <string name="about">关于我们</string>
+    <string name="exit">退出</string>
+    <string name="rankAccount">用户名</string>
+    <string name="rankScore">分数</string>
+    <string name="information">这是一款关于2048小游戏的安卓原生开发项目,玩家可以玩到普通的2048游戏，同时采用本地数据库同步远程数据库，远程数据库已部署到服务器上</string>
+</resources>
