@@ -14,8 +14,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
+import com.example.a2048.Colletctor.ActivityCollector;
 import com.example.a2048.Model.User;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -35,7 +37,7 @@ import java.util.List;
  * @author lmw
  * 分数排行榜页面
  */
-public class ScoreActivity extends Activity {
+public class ScoreActivity extends AppCompatActivity {
     public final String url = "http://47.94.194.71:500/";
     public static final int success = 0;
     public static final int error = 1;
@@ -106,6 +108,7 @@ public class ScoreActivity extends Activity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.scoer_activity);
+        ActivityCollector.addActivity(this);
         listView = findViewById(R.id.rankList);
         new WorkThread().start();
     }

@@ -18,6 +18,8 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import com.example.a2048.Colletctor.ActivityCollector;
 import com.example.a2048.Model.User;
 import com.example.a2048.SQlite.SQLiteHelper;
 import com.example.a2048.View.GameView;
@@ -32,7 +34,7 @@ import java.net.URL;
 /**
  * @author lmw
  */
-public class PlayActivity extends Activity {
+public class PlayActivity extends AppCompatActivity {
     private final String url = "http://47.94.194.71:500/";
     /**
      * 本地文件存储路径
@@ -79,6 +81,7 @@ public class PlayActivity extends Activity {
                     System.out.println("同步成功");
                     Toast.makeText(PlayActivity.this, "同步成功", Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(PlayActivity.playActivity, MainActivity.class);
+                    PlayActivity.playActivity.finish();
                     startActivity(intent);
                 }
                 break;
@@ -86,6 +89,7 @@ public class PlayActivity extends Activity {
                     System.out.println("同步失败");
                     Toast.makeText(PlayActivity.this, "同步失败", Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(PlayActivity.playActivity, MainActivity.class);
+                    PlayActivity.playActivity.finish();
                     startActivity(intent);
                 }
                 break;
@@ -151,6 +155,7 @@ public class PlayActivity extends Activity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.play_activity);
+        ActivityCollector.addActivity(this);
         textScore = findViewById(R.id.textScore);
         textHighestScore = findViewById(R.id.textHighestScore);
         buttonReplay = findViewById(R.id.buttonReplay);

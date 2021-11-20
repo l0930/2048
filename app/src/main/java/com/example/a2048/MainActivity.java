@@ -2,6 +2,7 @@ package com.example.a2048;
 
 
 import android.Manifest;
+import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.view.View;
@@ -11,10 +12,14 @@ import android.os.Bundle;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * @author lmw
  */
 public class MainActivity extends AppCompatActivity {
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void gotoPlay(View view) {
+        this.finish();
         Intent intent = new Intent(getApplicationContext(), PlayActivity.class);
         startActivity(intent);
     }
@@ -50,7 +56,11 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void exit(View view) {
-        android.os.Process.killProcess(android.os.Process.myPid());
+        this.finish();
+        if (PlayActivity.playActivity != null) {
+            PlayActivity.playActivity.finish();
+        }
+        System.exit(0);
     }
 }
 
